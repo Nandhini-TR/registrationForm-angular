@@ -1,0 +1,22 @@
+<app-form (itemSave)="save($event)"></app-form>
+<table class="table">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">Student Name</th>
+      <th scope="col">Student Email</th>
+      <th scope="col">Student Branch</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentsData">
+      <td>{{student.firstname}}</td>
+      <td>{{student.email}}</td>
+      <td>{{student.tel_num}}</td>
+      <td>
+        <button class="btn btn-sm btn-primary me-2"> Delete </button>
+        <button class="btn btn-sm btn-info" (click)="update(student)"> Update </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

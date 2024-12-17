@@ -1,0 +1,59 @@
+<div class="bg-container">
+  <div class="form-bg-container">
+      <h1 class="main-heading">REGISTRATION FORM</h1>
+      
+      <div class="profile-pic">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Image">
+      </div>
+
+      <form class="form-container">
+        
+        <div class="row">
+          <div class="form-group-name">
+            <label for="firstname"></label>
+            <input type="text" id="firstname" name="firstname" placeholder="First Name" [(ngModel)]="form.firstname" />
+          </div>
+          <div class="form-group-name">
+            <label for="lastname"></label>
+            <input type="text" id="lastname" placeholder="Last Name" name="lastname" [(ngModel)]="form.lastname">
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label for="username"><i class="fas fa-user icon-style me-2"></i> </label>
+          <input type="text" id="username" placeholder="Username" name="username" [(ngModel)]="form.username">
+        </div>
+
+        
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope icon-style me-2"></i></label>
+          <input type="email" id="email" placeholder="Email" name="email" [(ngModel)]="form.email">
+        </div>
+
+        
+        <div class="form-group">
+          <label for="tel"><i class="fas fa-phone icon-style me-2"></i></label>
+          <input type="tel" id="tel" placeholder="Tel. Number" name="tel" [(ngModel)]="form.tel_num">
+        </div>
+
+        
+        <div class="form-group">
+          <label for="password"><i class="fas fa-unlock icon-style me-2"></i></label>
+          <input type="password" id="password" placeholder="Password" name="password" [(ngModel)]="form.password">
+        </div>
+
+        
+        <div class="form-group">
+          <label for="confirmpassword"><i class="fas fa-lock icon-style me-2"></i></label>
+          <input type="password" id="confirmpassword" placeholder="Confirm Password" name="confirm_password" [(ngModel)]="form.confirm_password">
+        </div>
+   
+        
+        <div class="submit-btn">
+          <button type="button" (click)="submit()">OK</button>
+        </div>
+      </form>
+  </div>
+</div>
+
