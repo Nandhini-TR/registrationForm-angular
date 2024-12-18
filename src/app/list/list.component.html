@@ -1,10 +1,10 @@
-<app-form (itemSave)="save($event)"></app-form>
+<app-form (itemSave)="save($event)"  [form]="form"></app-form>
 <table class="table">
   <thead class="table-light">
     <tr>
       <th scope="col">Student Name</th>
       <th scope="col">Student Email</th>
-      <th scope="col">Student Branch</th>
+      <th scope="col">Mobile Number</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
       <td>{{student.email}}</td>
       <td>{{student.tel_num}}</td>
       <td>
-        <button class="btn btn-sm btn-primary me-2"> Delete </button>
+        <button class="btn btn-sm btn-primary me-2" (click)="delete(student.id)"> Delete </button>
         <button class="btn btn-sm btn-info" (click)="update(student)"> Update </button>
       </td>
     </tr>
