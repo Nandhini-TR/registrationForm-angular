@@ -4,9 +4,9 @@ import {FormComponent} from './form/form.component'
 
 @Component({
   selector: 'app-root',
-  imports: [ListComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  standalone: false
 })
 export class AppComponent {
   title = 'default';

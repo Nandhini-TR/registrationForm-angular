@@ -76,7 +76,8 @@ body {
 
   .form-group-name{
     display: flex;
-    width: 20%; 
+    flex-direction: column;
+    width: 38%; 
     margin: 10px;
   }
 

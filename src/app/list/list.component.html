@@ -1,4 +1,6 @@
-<app-form (itemSave)="save($event)"  [form]="form"></app-form>
+<div class="table-bg-container">
+<button class="btn btn-sm btn-primary new-button"  [routerLink]="['/create']"> Add New  <i class="fa-solid fa-circle-plus plus-icon"></i></button>
+
 <table class="table">
   <thead class="table-light">
     <tr>
@@ -20,3 +22,4 @@
     </tr>
   </tbody>
 </table>
+</div>
