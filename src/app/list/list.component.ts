@@ -24,7 +24,6 @@ export class ListComponent {
   delete(studentId:any){
     this.studentsData = this.studentsData.filter((student: any) => student.id !== studentId);
     localStorage.setItem('studentsData', JSON.stringify(this.studentsData));
-
   }
 
   update(student:any){

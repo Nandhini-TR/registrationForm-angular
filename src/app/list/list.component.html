@@ -20,6 +20,9 @@
         <button class="btn btn-sm btn-info" (click)="update(student)"> Update </button>
       </td>
     </tr>
+    <tr *ngIf="!studentsData.length">
+      <td colspan="4" class="text-center align-middle">No records!</td>
+    </tr>
   </tbody>
 </table>
 </div>
