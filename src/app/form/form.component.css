@@ -88,7 +88,6 @@ body {
   .form-group {
     display: flex;
     width: 48%; 
-    margin-bottom: 20px;
     align-items: center;
   }
   .submit-btn button {
@@ -103,39 +102,13 @@ body {
     transition: all 0.3s ease;
   }
   
+  .error{
+    color: #ff0000;
+    font-size: 12px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
- 
-
-
-
-
-  
-
-
-  
+  .form-group-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }

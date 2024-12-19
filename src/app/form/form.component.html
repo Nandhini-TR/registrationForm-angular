@@ -6,52 +6,87 @@
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Image">
       </div>
 
-      <form class="form-container">
+      <form class="form-container" [formGroup]="registrationForm" (ngSubmit)="submit()">
         
         <div class="row">
           <div class="form-group-name">
             <label for="firstname"></label>
-            <input type="text" id="firstname" name="firstname" placeholder="First Name" [(ngModel)]="form.firstname" />
+            <input type="text" id="firstname" name="firstname" placeholder="First Name" formControlName="firstname" />
+            <div *ngIf="registrationForm.controls.firstname.invalid && registrationForm.controls.firstname.touched">
+              <span *ngIf="registrationForm.controls.firstname.errors?.['required']" class="error">First Name is required</span>
+              <span *ngIf="registrationForm.controls.firstname.errors?.['pattern']"  class="error">
+                First Name can only contain letters and spaces
+              </span>
+            </div>
           </div>
           <div class="form-group-name">
             <label for="lastname"></label>
-            <input type="text" id="lastname" placeholder="Last Name" name="lastname" [(ngModel)]="form.lastname">
+            <input type="text" id="lastname" placeholder="Last Name" name="lastname" formControlName="lastname">
+            <div *ngIf="registrationForm.controls.lastname.invalid && registrationForm.controls.lastname.touched">
+              <span *ngIf="registrationForm.controls.lastname.errors?.['required']" class="error">Last Name is required</span>
+              <span *ngIf="registrationForm.controls.lastname.errors?.['pattern']" class="error">
+                Last Name can only contain letters and spaces
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group-container">
+          <div class="form-group">
+            <label for="username"><i class="fas fa-user icon-style me-2"></i> </label>
+            <input type="text" id="username" placeholder="Username" name="username" formControlName="username">
+          </div>
+          <div *ngIf="registrationForm.controls.username.invalid && registrationForm.controls.username.touched">
+            <span *ngIf="registrationForm.controls.username.errors?.['required']" class="error">User Name is required</span>
+            <span *ngIf="registrationForm.controls.username.errors?.['pattern']" class="error">
+              User Name can only contain letters and spaces
+            </span>
           </div>
         </div>
 
         
-        <div class="form-group">
-          <label for="username"><i class="fas fa-user icon-style me-2"></i> </label>
-          <input type="text" id="username" placeholder="Username" name="username" [(ngModel)]="form.username">
+        <div class="form-group-container">
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope icon-style me-2"></i></label>
+            <input type="email" id="email" placeholder="Email" name="email" formControlName="email">
+          </div>
+            <div *ngIf="registrationForm.controls.email.invalid && registrationForm.controls.email.touched">
+          
+            <span *ngIf="registrationForm.controls.email.errors?.['required']" class="error">Email is required</span>
+            <span *ngIf="registrationForm.controls.email.errors?.['email']" class="error">Invalid email format</span>
+          </div>
+        </div>
+
+        <div class="form-group-container">
+          <div class="form-group">
+            <label for="tel"><i class="fas fa-phone icon-style me-2"></i></label>
+            <input type="tel" id="tel" placeholder="Tel. Number" name="tel" formControlName="tel_num">
+          </div>
+          <div *ngIf="registrationForm.controls.tel_num.invalid && registrationForm.controls.tel_num.touched">
+            <span *ngIf="registrationForm.controls.tel_num.errors?.['required']" class="error">Phone Number is required</span>
+            <span *ngIf="registrationForm.controls.tel_num.errors?.['pattern']" class="error">Phone Number must be 10 digits</span>
+          </div>
         </div>
 
         
-        <div class="form-group">
-          <label for="email"><i class="fas fa-envelope icon-style me-2"></i></label>
-          <input type="email" id="email" placeholder="Email" name="email" [(ngModel)]="form.email">
-        </div>
-
-        
-        <div class="form-group">
-          <label for="tel"><i class="fas fa-phone icon-style me-2"></i></label>
-          <input type="tel" id="tel" placeholder="Tel. Number" name="tel" [(ngModel)]="form.tel_num">
-        </div>
-
-        
-        <div class="form-group">
+        <div class="form-group mb-3">
           <label for="password"><i class="fas fa-unlock icon-style me-2"></i></label>
-          <input type="password" id="password" placeholder="Password" name="password" [(ngModel)]="form.password">
+          <input type="password" id="password" placeholder="Password" name="password" formControlName="password">
         </div>
 
-        
-        <div class="form-group">
-          <label for="confirmpassword"><i class="fas fa-lock icon-style me-2"></i></label>
-          <input type="password" id="confirmpassword" placeholder="Confirm Password" name="confirm_password" [(ngModel)]="form.confirm_password">
+        <div class="form-group-container">
+          <div class="form-group">
+            <label for="confirmpassword"><i class="fas fa-lock icon-style me-2"></i></label>
+            <input type="password" id="confirmpassword" placeholder="Confirm Password" name="confirm_password" formControlName="confirm_password">
+          </div>
+          <div *ngIf="registrationForm.hasError('mismatch') && registrationForm.touched" class="error">
+            Passwords do not match.
+          </div>
         </div>
    
         
         <div class="submit-btn">
-          <button type="button" (click)="submit()">OK</button>
+          <button type="submit" [disabled]="registrationForm.invalid">OK</button>
         </div>
       </form>
   </div>
